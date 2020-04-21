@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: client-node-port
+spec:
+    type: NodePort
+    ports:
+        - port: 3050 #For comunication with other pod's within the kubecluster
+          targetPort: 3000 # Pod's target port
+          nodePort: 31515 # exposed outside nodeport
+    selector:
+        component: web
+
